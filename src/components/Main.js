@@ -6,6 +6,7 @@ const Main = () => {
   const [modalShow, setModalShow] = useState(false);
   const [modalType, setModalType] = useState("ADD");
   const [employees, setEmployees] = useState([]);
+  const [employee, setEmployee] = useState({});
 
   useEffect(() => {
     getEmployees();
@@ -32,6 +33,7 @@ const Main = () => {
           show={modalShow}
           onHide={() => setModalShow(false)}
           type={modalType}
+          employee={employee}
           size="lg"
         />
         <div>
@@ -59,6 +61,11 @@ const Main = () => {
                     <button
                       type="button"
                       className="btn btn-outline-primary btn-sm px-3"
+                      onClick={() => {
+                        setModalType("EDIT");
+                        setEmployee(e);
+                        setModalShow(true);
+                      }}
                     >
                       Edit
                     </button>
