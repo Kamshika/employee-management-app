@@ -27,7 +27,7 @@ const PopupModal = (props) => {
     } else {
       alert("Could not updated Employee");
     }
-  }
+  };
   return (
     <>
       <Modal {...props}>
@@ -205,6 +205,8 @@ const PopupModal = (props) => {
                     >
                       <option value="Full Time">Full Time</option>
                       <option value="Part Time">Part Time</option>
+                      <option value="Contract Basis">Contract Basis</option>
+                      <option value="Other">Other</option>
                     </select>
                   </div>
                 </div>

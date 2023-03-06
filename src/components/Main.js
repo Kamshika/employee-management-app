@@ -17,6 +17,13 @@ const Main = () => {
     setEmployees(data.data);
   };
 
+  const getEmployeesByField = async (field, value) => {
+    const { data } = await axios.get(
+      `http://localhost:5000/employees?field=${field}&value=${value}`
+    );
+    setEmployees(data.data);
+  };
+
   const deleteEmployee = async (id) => {
     const response = await axios.delete(
       `http://localhost:5000/employees/${id}`
@@ -34,13 +41,30 @@ const Main = () => {
       <div className="container p-5">
         <h5>People</h5>
         <hr />
-        <button
-          type="button"
-          className="btn btn-primary btn-sm float-end"
-          onClick={() => setModalShow(true)}
-        >
-          Add People
-        </button>
+        <div className="d-flex align-items-end w-25 float-end">
+          <select
+            className="form-control form-select w-100 mx-3"
+            id="selectEmployeeType"
+            onChange={(e) => {
+              e.target.value === "All"
+                ? getEmployees()
+                : getEmployeesByField("employeeType", e.target.value);
+            }}
+          >
+            <option value="All">All</option>
+            <option value="Full Time">Full Time</option>
+            <option value="Part Time">Part Time</option>
+            <option value="Contract Basis">Contract Basis</option>
+            <option value="Other">Other</option>
+          </select>
+          <button
+            type="button"
+            className="btn btn-primary btn-sm w-100"
+            onClick={() => setModalShow(true)}
+          >
+            Add People
+          </button>
+        </div>
         <PopupModal
           show={modalShow}
           onHide={() => setModalShow(false)}
