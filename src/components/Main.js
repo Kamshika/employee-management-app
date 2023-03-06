@@ -17,6 +17,18 @@ const Main = () => {
     setEmployees(data.data);
   };
 
+  const deleteEmployee = async (id) => {
+    const response = await axios.delete(
+      `http://localhost:5000/employees/${id}`
+    );
+    if (response.status === 200) {
+      alert("Deleted Employee");
+    } else {
+      alert("Could not delete Employee");
+    }
+    getEmployees();
+  };
+
   return (
     <main>
       <div className="container p-5">
@@ -74,6 +86,9 @@ const Main = () => {
                     <button
                       type="button"
                       className="btn btn-outline-danger btn-sm"
+                      onClick={() => {
+                        deleteEmployee(e.id);
+                      }}
                     >
                       Delete
                     </button>
