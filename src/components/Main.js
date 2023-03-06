@@ -1,9 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import PopupModal from "./PopupModal";
 
 const Main = () => {
   const [modalShow, setModalShow] = useState(false);
   const [modalType, setModalType] = useState("ADD");
+  const [employees, setEmployees] = useState([]);
+
+  useEffect(() => {
+    getEmployees();
+  }, []);
+
+  const getEmployees = async () => {
+    const { data } = await axios.get(`http://localhost:5000/employees`);
+    setEmployees(data.data);
+  };
 
   return (
     <main>
@@ -37,29 +48,31 @@ const Main = () => {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>Kamshika</td>
-                <td>001</td>
-                <td>Software Engineer</td>
-                <td>Full Time</td>
-                <td>02 Years</td>
-                <td>
-                  <button
-                    type="button"
-                    className="btn btn-outline-primary btn-sm px-3"
-                  >
-                    Edit
-                  </button>
-                </td>
-                <td>
-                  <button
-                    type="button"
-                    className="btn btn-outline-danger btn-sm"
-                  >
-                    Delete
-                  </button>
-                </td>
-              </tr>
+              {employees.map((e) => (
+                <tr key={e.id}>
+                  <td>{e.displayName}</td>
+                  <td>{e.id}</td>
+                  <td>{e.designation}</td>
+                  <td>{e.employeeType}</td>
+                  <td>0{e.experience} Years</td>
+                  <td>
+                    <button
+                      type="button"
+                      className="btn btn-outline-primary btn-sm px-3"
+                    >
+                      Edit
+                    </button>
+                  </td>
+                  <td>
+                    <button
+                      type="button"
+                      className="btn btn-outline-danger btn-sm"
+                    >
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>
