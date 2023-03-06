@@ -3,6 +3,7 @@ import PopupModal from "./PopupModal";
 
 const Main = () => {
   const [modalShow, setModalShow] = useState(false);
+  const [modalType, setModalType] = useState("ADD");
 
   return (
     <main>
@@ -16,7 +17,12 @@ const Main = () => {
         >
           Add People
         </button>
-        <PopupModal show={modalShow} onHide={() => setModalShow(false)}  />
+        <PopupModal
+          show={modalShow}
+          onHide={() => setModalShow(false)}
+          type={modalType}
+          size="lg"
+        />
         <div>
           <table className="table">
             <thead>
