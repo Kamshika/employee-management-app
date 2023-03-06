@@ -1,14 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
+import PopupModal from "./PopupModal";
 
 const Main = () => {
+  const [modalShow, setModalShow] = useState(false);
+
   return (
     <main>
       <div className="container p-5">
         <h5>People</h5>
         <hr />
-        <button type="button" className="btn btn-primary btn-sm float-end">
+        <button
+          type="button"
+          className="btn btn-primary btn-sm float-end"
+          onClick={() => setModalShow(true)}
+        >
           Add People
         </button>
+        <PopupModal show={modalShow} onHide={() => setModalShow(false)}  />
         <div>
           <table className="table">
             <thead>
