@@ -1,9 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Modal, Button, Container } from "react-bootstrap";
 
 const PopupModal = (props) => {
   const [employee, setEmployee] = useState(props.employee);
+
+  useEffect(() => {
+    setEmployee(props.employee);
+  }, [props.employee]);
 
   const addEmployee = async (employee) => {
     const response = await axios.post(
@@ -18,9 +22,12 @@ const PopupModal = (props) => {
   };
 
   const editEmployee = async (employee) => {
+    const body = employee;
+    const id = employee.id;
+    delete body.id;
     const response = await axios.put(
-      `http://localhost:5000/employees/${employee.id}`,
-      employee
+      `http://localhost:5000/employees/${id}`,
+      body
     );
     if (response.status === 200) {
       alert("Updated Employee");
@@ -314,7 +321,7 @@ const PopupModal = (props) => {
           <Button
             variant="primary"
             onClick={() => {
-              if (props.type) {
+              if (props.type === "ADD") {
                 addEmployee(employee);
               } else {
                 editEmployee(employee);

@@ -98,8 +98,8 @@ const Main = () => {
                       type="button"
                       className="btn btn-outline-primary btn-sm px-3"
                       onClick={() => {
-                        setModalType("EDIT");
                         setEmployee(e);
+                        setModalType("EDIT");
                         setModalShow(true);
                       }}
                     >
