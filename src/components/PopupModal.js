@@ -49,7 +49,7 @@ const PopupModal = (props) => {
                   id="fullName"
                   placeholder="Full Name"
                   required
-                  value={props.employee.fullName}
+                  value={employee.fullName}
                   onChange={(e) =>
                     setEmployee({ ...employee, fullName: e.target.value })
                   }
@@ -67,7 +67,7 @@ const PopupModal = (props) => {
                       id="nameWithInitials"
                       placeholder="Name with Initials"
                       required
-                      value={props.employee.nameWithInitials}
+                      value={employee.nameWithInitials}
                       onChange={(e) =>
                         setEmployee({
                           ...employee,
@@ -85,7 +85,7 @@ const PopupModal = (props) => {
                       className="form-control"
                       id="displayName"
                       placeholder="Display Name"
-                      value={props.employee.displayName}
+                      value={employee.displayName}
                       onChange={(e) =>
                         setEmployee({
                           ...employee,
@@ -105,7 +105,7 @@ const PopupModal = (props) => {
                     <select
                       className="form-control form-select"
                       id="gender"
-                      value={props.employee.gender}
+                      value={employee.gender}
                       onChange={(e) =>
                         setEmployee({ ...employee, gender: e.target.value })
                       }
@@ -123,7 +123,7 @@ const PopupModal = (props) => {
                       className="form-control"
                       id="dateOfBirth"
                       placeholder="Date of Birth"
-                      value={props.employee.dateOfBirth}
+                      value={employee.dateOfBirth}
                       onChange={(e) =>
                         setEmployee({
                           ...employee,
@@ -145,7 +145,7 @@ const PopupModal = (props) => {
                       className="form-control"
                       id="email"
                       placeholder="Email"
-                      value={props.employee.email}
+                      value={employee.email}
                       onChange={(e) =>
                         setEmployee({ ...employee, email: e.target.value })
                       }
@@ -160,7 +160,7 @@ const PopupModal = (props) => {
                       className="form-control"
                       id="mobile"
                       placeholder="Mobile"
-                      value={props.employee.mobile}
+                      value={employee.mobile}
                       onChange={(e) =>
                         setEmployee({ ...employee, mobile: e.target.value })
                       }
@@ -179,7 +179,7 @@ const PopupModal = (props) => {
                       className="form-control"
                       id="designation"
                       placeholder="Designation"
-                      value={props.employee.designation}
+                      value={employee.designation}
                       onChange={(e) =>
                         setEmployee({
                           ...employee,
@@ -195,7 +195,7 @@ const PopupModal = (props) => {
                     <select
                       className="form-control form-select"
                       id="employeeType"
-                      value={props.employee.employeeType}
+                      value={employee.employeeType}
                       onChange={(e) =>
                         setEmployee({
                           ...employee,
@@ -222,7 +222,7 @@ const PopupModal = (props) => {
                       className="form-control"
                       id="joinedDate"
                       placeholder="Joined Date"
-                      value={props.employee.joinedDate}
+                      value={employee.joinedDate}
                       onChange={(e) =>
                         setEmployee({
                           ...employee,
@@ -238,7 +238,7 @@ const PopupModal = (props) => {
                     <select
                       className="form-control form-select"
                       id="experience"
-                      value={props.employee.experience}
+                      value={employee.experience}
                       onChange={(e) =>
                         setEmployee({
                           ...employee,
@@ -266,7 +266,7 @@ const PopupModal = (props) => {
                       className="form-control"
                       id="salary"
                       placeholder="Salary"
-                      value={props.employee.salary}
+                      value={employee.salary}
                       onChange={(e) =>
                         setEmployee({
                           ...employee,
@@ -288,7 +288,7 @@ const PopupModal = (props) => {
                       className="form-control"
                       id="personalNotes"
                       placeholder="Personal Notes"
-                      value={props.employee.personalNotes}
+                      value={employee.personalNotes}
                       onChange={(e) =>
                         setEmployee({
                           ...employee,
